@@ -1,0 +1,246 @@
+/* ============================================================
+   FOLIO — TASKS CSS
+   File: tasks.css
+   Used by: tasks.html
+   ============================================================ */
+
+
+/* ============================================================
+   TASK CARDS
+   ============================================================ */
+
+.task-card {
+  background: var(--glass);
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius-md);
+
+  padding: 20px 22px;
+
+  display: flex;
+
+  gap: 16px;
+
+  align-items: flex-start;
+
+  transition:
+    border-color 0.25s var(--ease),
+    transform 0.2s var(--ease);
+}
+
+.task-card:hover {
+  border-color: var(--border-strong);
+
+  transform: translateY(-2px);
+}
+
+
+/* ---------- Checkbox ---------- */
+
+.check {
+  appearance: none;
+  -webkit-appearance: none;
+
+  width: 22px;
+  height: 22px;
+
+  border-radius: 6px;
+
+  border: 2px solid var(--border-strong);
+
+  flex-shrink: 0;
+
+  margin-top: 3px;
+
+  cursor: pointer;
+
+  position: relative;
+
+  transition:
+    background 0.2s var(--ease),
+    border-color 0.2s var(--ease);
+}
+
+.check:checked {
+  background: var(--teal);
+
+  border-color: var(--teal);
+}
+
+.check:checked::after {
+  content: "✓";
+
+  position: absolute;
+
+  inset: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 13px;
+
+  color: var(--ink-900);
+
+  font-weight: 800;
+}
+
+
+/* ---------- Completed Task ---------- */
+
+.check:checked ~ .task-body {
+  opacity: 0.45;
+
+  text-decoration: line-through;
+}
+
+
+/* ---------- Task Body ---------- */
+
+.task-body {
+  flex: 1;
+}
+
+
+/* ---------- Task Top Row ---------- */
+
+.task-top-row {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: flex-start;
+
+  gap: 10px;
+
+  flex-wrap: wrap;
+
+  margin-bottom: 6px;
+}
+
+.task-top-row h4 {
+  font-size: 1.02rem;
+}
+
+
+/* ---------- Task Metadata ---------- */
+
+.task-meta {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 14px;
+
+  font-size: 0.8rem;
+
+  color: var(--text-dim);
+
+  margin-top: 10px;
+}
+
+.task-meta span {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 5px;
+}
+
+
+/* ---------- Task Buttons ---------- */
+/* (.icon-btn lives in common.css because other pages use it too) */
+
+.task-actions {
+  display: flex;
+
+  gap: 8px;
+
+  margin-left: auto;
+
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   TASK FILTERS
+   ============================================================ */
+
+.filter-row {
+  display: flex;
+
+  gap: 10px;
+
+  flex-wrap: wrap;
+
+  margin-bottom: 26px;
+}
+
+.filter-pill {
+  display: none;
+}
+
+.filter-pill + label {
+  display: inline-flex;
+
+  align-items: center;
+
+  padding: 9px 16px;
+
+  border-radius: 999px;
+
+  border: 1px solid var(--border-strong);
+
+  font-size: 0.84rem;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  color: var(--text-mid);
+
+  transition: 0.2s var(--ease);
+}
+
+.filter-pill + label:hover {
+  border-color: var(--gold);
+
+  color: var(--text-hi);
+}
+
+.filter-pill:checked + label {
+  background: var(--gold);
+
+  color: var(--ink-900);
+
+  border-color: var(--gold);
+}
+
+
+/* ---------- Task Section ---------- */
+
+.task-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 14px;
+}
+
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 760px) {
+
+  .task-card {
+    flex-wrap: wrap;
+  }
+
+  .task-actions {
+    width: 100%;
+
+    justify-content: flex-end;
+  }
+}

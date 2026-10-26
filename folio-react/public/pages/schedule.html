@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Schedule — Folio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/common.css">
+<link rel="stylesheet" href="../css/schedule.css">
+<link rel="stylesheet" href="../css/loader.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-bar">
+    <a href="home.html#loader" class="brand"><span class="brand-mark">F</span> Folio</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <label for="nav-toggle" class="hamburger" aria-label="Open menu"><span></span><span></span><span></span></label>
+    <nav class="nav-menu">
+   <ul style="display:flex; gap:4px; flex-direction:inherit;">
+        <li><a href="home.html#loader">Home</a></li>
+        <li><a href="home.html#dashboard">Dashboard</a></li>
+        <li><a href="tasks.html">Tasks</a></li>
+        <li><a href="schedule.html" class="active">Calendar</a></li>
+        <li><a href="subjects.html">Subjects</a></li>
+        <!-- <li><a href="notes.html">Notes</a></li> -->
+        <li><a href="progress.html">Progress</a></li>
+        <li><a href="about.html">About</a></li>
+        <!-- <li><a href="contact.html">Contact</a></li> -->
+    </ul>
+</nav>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <div class="eyebrow-row"><span class="chip chip-medium" id="week-label">This week</span></div>
+      <h1>Schedule &amp; calendar</h1>
+      <p>Your class timetable, deadlines and study sessions, side by side.</p>
+    </div>
+  </section>
+
+  <!-- ============ MONTH CALENDAR (tasks + events on their dates) ============ -->
+  <section class="section-tight" id="calendar">
+    <div class="container">
+      <div class="section-heading"><h2>Month calendar</h2></div>
+
+      <div class="calendar-toolbar">
+        <button type="button" class="icon-btn" id="cal-prev" aria-label="Previous month" title="Previous month">‹</button>
+        <h3 id="cal-title">Month</h3>
+        <button type="button" class="icon-btn" id="cal-next" aria-label="Next month" title="Next month">›</button>
+        <button type="button" class="btn btn-sm" id="cal-today">Today</button>
+      </div>
+
+      <div class="calendar-wrap">
+        <div class="calendar-grid" id="cal-grid"></div>
+      </div>
+      <p class="form-note calendar-legend">
+        <span class="legend-dot dot-high"></span> High
+        <span class="legend-dot dot-medium"></span> Medium
+        <span class="legend-dot dot-low"></span> Low
+        <span class="legend-dot dot-event"></span> Event
+        · Click a date to see and manage what is on it.
+      </p>
+
+      <!-- details of the clicked date (filled in by schedule.js) -->
+      <div class="panel day-panel" id="day-panel">
+        <h3 id="day-title">Selected day</h3>
+        <div id="day-items"></div>
+
+        <form class="day-add-form" id="day-form" novalidate>
+          <input type="text" id="day-new-title" placeholder="Quick add a task for this date…" aria-label="New task title">
+          <select id="day-new-subject" aria-label="Subject"></select>
+          <select id="day-new-priority" aria-label="Priority">
+            <option>Low</option>
+            <option selected>Medium</option>
+            <option>High</option>
+          </select>
+          <button type="submit" class="btn btn-primary btn-sm">+ Add task</button>
+        </form>
+        <p class="form-note" id="day-message">Tasks added here are saved on the Tasks page too.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WEEKLY TIMETABLE ============ -->
+  <section class="section-tight">
+    <div class="container">
+      <div class="section-heading"><h2>Weekly timetable</h2></div>
+      <div class="timetable-wrap">
+        <table class="timetable">
+          <thead>
+            <tr><th>Time</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th></tr>
+          </thead>
+          <!-- rows are filled in by schedule.js -->
+          <tbody id="timetable-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ADD EVENT FORM ============ -->
+  <section class="section-tight" id="add-event">
+    <div class="container">
+      <div class="section-heading"><h2>Add an event or study session</h2></div>
+      <form class="panel" id="event-form" novalidate>
+        <div class="form-grid">
+          <div class="field">
+            <label for="e-title">Event title</label>
+            <input id="e-title" type="text" placeholder="e.g. Group study — Operating Systems">
+          </div>
+          <div class="field">
+            <label for="e-type">Type</label>
+            <select id="e-type">
+              <option>Class</option>
+              <option>Lab</option>
+              <option>Exam</option>
+              <option>Study session</option>
+              <option>Other event</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="e-date">Date</label>
+            <input id="e-date" type="date">
+          </div>
+          <div class="field">
+            <label for="e-time">Time</label>
+            <input id="e-time" type="time">
+          </div>
+        </div>
+        <div style="margin-top:18px;"><button type="submit" class="btn btn-primary">Add to calendar</button></div>
+        <p class="form-note" id="event-message">Events are saved in this browser and show up on your dashboard on the day they happen.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ YOUR EVENTS ============ -->
+  <section class="section-tight" id="my-events-section" style="display:none;">
+    <div class="container">
+      <div class="section-heading"><h2>Your events</h2></div>
+      <div class="task-list" id="my-events"></div>
+    </div>
+  </section>
+
+  <!-- ============ UPCOMING DEADLINES / EXAM COUNTDOWN ============ -->
+  <section class="section-tight">
+    <div class="container grid grid-2">
+      <div>
+        <div class="section-heading"><h2>Upcoming deadlines</h2></div>
+        <div style="display:flex; flex-direction:column; gap:12px;" id="deadline-list"></div>
+      </div>
+
+      <div>
+        <div class="section-heading"><h2>Exam countdown</h2></div>
+        <div class="panel" style="text-align:center;" id="exam-box"></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+
+    <div class="footer-main">
+
+        <!-- Brand Section -->
+        <div class="footer-brand">
+            <a href="home.html#loader" class="footer-logo">
+                <span class="footer-logo-mark">F</span>
+                <span>Folio</span>
+            </a>
+
+            <p class="footer-description">
+                A smarter way for students to organize tasks,
+                manage schedules, and stay on track.
+            </p>
+
+            <div class="footer-status">
+                <span class="status-dot"></span>
+                Built for students
+            </div>
+        </div>
+
+
+        <!-- Navigation -->
+        <div class="footer-column">
+            <h4>Navigate</h4>
+
+            <a href="home.html#loader">Home</a>
+            <a href="tasks.html">Tasks</a>
+            <a href="schedule.html">Calendar</a>
+            <a href="subjects.html">Subjects</a>
+            <a href="progress.html">Progress</a>
+        </div>
+
+
+        <!-- Resources -->
+        <div class="footer-column">
+            <h4>Explore</h4>
+
+            <a href="about.html">About Folio</a>
+            <a href="tasks.html">Task Manager</a>
+            <a href="schedule.html">Study Schedule</a>
+            <a href="subjects.html">Your Subjects</a>
+            <a href="progress.html">Your Progress</a>
+        </div>
+
+
+        <!-- Footer CTA -->
+        <div class="footer-cta">
+
+            <div class="footer-cta-icon">
+                ✦
+            </div>
+
+            <h3>Stay organized.</h3>
+
+            <p>
+                Plan your work, track your progress,
+                and make every study session count.
+            </p>
+
+            <a href="tasks.html" class="footer-cta-btn">
+                Start Planning
+                <span>→</span>
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- Footer Bottom -->
+
+    <div class="footer-bottom">
+
+        <div class="footer-copyright">
+            © 2026 Folio. Built for better study days.
+        </div>
+
+        <div class="footer-bottom-links">
+            <a href="about.html">About</a>
+            <span>•</span>
+            <a href="tasks.html">Tasks</a>
+            <span>•</span>
+            <a href="schedule.html">Schedule</a>
+        </div>
+
+        <div class="footer-made">
+            Student Task Management System
+        </div>
+
+    </div>
+
+</footer>
+
+<script src="../js/common.js"></script>
+<script src="../js/schedule.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,255 @@
+/* ============================================================
+   FOLIO — HOME / DASHBOARD CSS
+   File: home.css
+   Used by: index.html
+   ============================================================ */
+
+
+/* ---------- Profile ---------- */
+
+.profile-card {
+  display: flex;
+  align-items: center;
+
+  gap: 18px;
+
+  background: var(--glass);
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius-lg);
+
+  padding: 22px 26px;
+}
+
+.avatar {
+  width: 64px;
+  height: 64px;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--violet),
+      var(--gold)
+    );
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: var(--font-display);
+
+  font-size: 1.4rem;
+  font-weight: 700;
+
+  color: var(--ink-900);
+
+  flex-shrink: 0;
+}
+
+.profile-meta h3 {
+  font-size: 1.15rem;
+
+  margin-bottom: 2px;
+}
+
+
+/* ---------- Productivity Ring ---------- */
+
+.ring-wrap {
+  position: relative;
+
+  display: inline-flex;
+}
+
+.ring {
+  --pct: 72;
+
+  width: 128px;
+  height: 128px;
+
+  border-radius: 50%;
+
+  background:
+    conic-gradient(
+      var(--gold) calc(var(--pct) * 1%),
+      var(--ink-600) 0
+    );
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ring-inner {
+  width: 98px;
+  height: 98px;
+
+  border-radius: 50%;
+
+  background: var(--ink-800-solid);
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.ring-inner strong {
+  font-family: var(--font-display);
+
+  font-size: 1.5rem;
+}
+
+.ring-inner span {
+  font-size: 0.68rem;
+
+  color: var(--text-dim);
+}
+
+
+/* ---------- Today's Schedule ---------- */
+
+.home-schedule {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 12px;
+}
+
+.home-schedule-row {
+  display: flex;
+
+  justify-content: space-between;
+
+  border-bottom: 1px solid var(--border);
+
+  padding-bottom: 12px;
+
+  gap: 12px;
+}
+
+.home-schedule-row:last-child {
+  border-bottom: none;
+
+  padding-bottom: 0;
+}
+
+
+/* ---------- Upcoming Tasks ---------- */
+
+.home-task-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 12px;
+}
+
+
+/* ---------- Quick Actions ---------- */
+
+.quick-actions {
+  display: flex;
+
+  gap: 14px;
+
+  flex-wrap: wrap;
+
+  align-items: center;
+
+  justify-content: space-between;
+}
+
+.quick-action-buttons {
+  display: flex;
+
+  gap: 12px;
+
+  flex-wrap: wrap;
+}
+
+
+/* ---------- Home Progress ---------- */
+
+.home-progress-spacer {
+  height: 18px;
+}
+
+
+/* ---------- Home Completed ---------- */
+
+.home-completed-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+
+/* ---------- Home Motivation ---------- */
+
+.quote-strip {
+  border-radius: var(--radius-lg);
+
+  padding: 30px 34px;
+
+  background:
+    linear-gradient(
+      120deg,
+      rgba(217,168,78,0.14),
+      rgba(139,131,224,0.10)
+    );
+
+  border: 1px solid var(--border);
+
+  position: relative;
+}
+
+.quote-strip p {
+  font-family: var(--font-display);
+
+  font-size: 1.2rem;
+
+  max-width: 60ch;
+}
+
+.quote-strip cite {
+  display: block;
+
+  margin-top: 10px;
+
+  font-size: 0.82rem;
+
+  color: var(--text-dim);
+
+  font-style: normal;
+}
+
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 760px) {
+
+  .profile-card {
+    flex-direction: column;
+
+    text-align: center;
+  }
+
+  .home-schedule-row {
+    flex-direction: column;
+
+    gap: 8px;
+  }
+
+  .quick-actions {
+    align-items: flex-start;
+  }
+}

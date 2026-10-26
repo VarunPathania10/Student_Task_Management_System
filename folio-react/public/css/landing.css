@@ -1,0 +1,235 @@
+/* ============================================================
+   FOLIO — LANDING PAGE CSS
+   File: landing.css
+   Used by: index.html
+   ============================================================ */
+
+
+/* ============================================================
+   HERO
+   ============================================================ */
+
+.hero {
+  padding: 84px 0 60px;
+
+  border-bottom: 1px solid var(--border);
+
+  text-align: center;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+
+  position: absolute;
+
+  top: -140px;
+  left: 50%;
+
+  width: 640px;
+  height: 640px;
+
+  transform: translateX(-50%);
+
+  background: radial-gradient(circle, rgba(217,168,78,0.16), transparent 65%);
+
+  pointer-events: none;
+}
+
+.hero-inner {
+  position: relative;
+
+  max-width: 760px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero .eyebrow-row {
+  justify-content: center;
+}
+
+.hero h1 {
+  font-size: clamp(2.1rem, 5vw, 3.4rem);
+
+  margin-bottom: 18px;
+}
+
+.hero p {
+  color: var(--text-mid);
+
+  max-width: 56ch;
+
+  font-size: 1.02rem;
+
+  margin-bottom: 30px;
+}
+
+.hero-actions {
+  display: flex;
+
+  gap: 14px;
+
+  flex-wrap: wrap;
+
+  justify-content: center;
+}
+
+
+/* ============================================================
+   HOW IT WORKS
+   ============================================================ */
+
+.steps-row {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 20px;
+}
+
+.step-card {
+  background: var(--glass);
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+
+  padding: 26px 24px;
+
+  transition:
+    border-color 0.25s var(--ease),
+    transform 0.25s var(--ease);
+}
+
+.step-card:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-3px);
+}
+
+.step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 34px;
+  height: 34px;
+
+  border-radius: 50%;
+
+  background: linear-gradient(135deg, var(--gold), var(--gold-soft));
+
+  color: var(--ink-900);
+
+  font-family: var(--font-display);
+  font-weight: 700;
+
+  margin-bottom: 16px;
+}
+
+.step-card h3 {
+  font-size: 1.05rem;
+
+  margin-bottom: 8px;
+}
+
+
+/* ============================================================
+   LANDING QUOTE STRIP
+   ============================================================ */
+
+.landing-quote {
+  border-radius: var(--radius-lg);
+
+  padding: 40px 44px;
+
+  text-align: center;
+
+  background:
+    linear-gradient(
+      120deg,
+      rgba(217,168,78,0.14),
+      rgba(139,131,224,0.10)
+    );
+
+  border: 1px solid var(--border);
+}
+
+.landing-quote p {
+  font-family: var(--font-display);
+
+  font-size: 1.35rem;
+
+  max-width: 60ch;
+
+  margin: 0 auto;
+}
+
+.landing-quote cite {
+  display: block;
+
+  margin-top: 14px;
+
+  font-size: 0.82rem;
+
+  color: var(--text-dim);
+
+  font-style: normal;
+}
+
+
+/* ============================================================
+   FINAL CTA BAND
+   ============================================================ */
+
+.cta-band {
+  border-radius: var(--radius-lg);
+
+  padding: 48px 40px;
+
+  text-align: center;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,0.045),
+      rgba(255,255,255,0.018)
+    );
+
+  border: 1px solid var(--border);
+}
+
+.cta-band h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+
+  margin-bottom: 10px;
+}
+
+.cta-band p {
+  color: var(--text-mid);
+
+  max-width: 50ch;
+
+  margin: 0 auto 26px;
+}
+
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 760px) {
+
+  .steps-row {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding: 60px 0 44px;
+  }
+
+  .landing-quote,
+  .cta-band {
+    padding: 32px 24px;
+  }
+}

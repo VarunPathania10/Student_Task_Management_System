@@ -1,0 +1,261 @@
+/* =========================================
+   FOLIO LOADING SCREEN
+   ========================================= */
+
+.loader-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #121212;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 9999;
+
+    animation: hideLoader 0.5s ease forwards;
+    animation-delay: 2.5s;
+}
+
+
+/* (the old CSS-only ":target" skip rule was removed: React now decides when to show the loader) */
+
+/* =========================================
+   SHOW LOADER ONLY ONCE
+   -----------------------------------------
+   A small script in the <head> adds the class
+   "skip-loader" to <html> after the loader has
+   already been shown in this browser tab.
+   ========================================= */
+
+html.skip-loader .loader-screen {
+    display: none;
+}
+
+
+/* Main Loader Content */
+
+.loader-inner {
+    text-align: center;
+
+    width: 90%;
+    max-width: 400px;
+}
+
+
+/* =========================================
+   LOGO
+   ========================================= */
+
+.loader-mark {
+    width: 70px;
+    height: 70px;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 2px solid #d9a84e;
+
+    border-radius: 15px;
+
+    color: #d9a84e;
+
+    font-size: 30px;
+    font-weight: bold;
+
+    animation: rotateLogo 2s linear infinite;
+}
+
+
+/* Logo Rotation */
+
+@keyframes rotateLogo {
+
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+/* =========================================
+   PROJECT NAME
+   ========================================= */
+
+.loader-title {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 42px;
+
+    letter-spacing: 5px;
+
+    font-weight: bold;
+}
+
+
+/* Subtitle */
+
+.loader-subtitle {
+    margin-top: 8px;
+
+    color: #aaaaaa;
+
+    font-size: 15px;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================
+   LOADING BAR
+   ========================================= */
+
+.loader-progress {
+    width: 260px;
+    height: 7px;
+
+    margin: 30px auto 15px;
+
+    background-color: #333333;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+
+/* Moving Loading Bar */
+
+.loader-progress-bar {
+    height: 100%;
+
+    width: 0%;
+
+    background-color: #d9a84e;
+
+    border-radius: 10px;
+
+    animation: loadingBar 2.5s ease forwards;
+}
+
+
+/* Loading Animation */
+
+@keyframes loadingBar {
+
+    0% {
+        width: 0%;
+    }
+
+    50% {
+        width: 55%;
+    }
+
+    80% {
+        width: 85%;
+    }
+
+    100% {
+        width: 100%;
+    }
+
+}
+
+
+/* =========================================
+   LOADING TEXT
+   ========================================= */
+
+.loader-text {
+    color: #888888;
+
+    font-size: 13px;
+
+    margin-top: 12px;
+}
+
+
+/* Animated Dots */
+
+.dots {
+    color: #d9a84e;
+
+    animation: dotsAnimation 1.5s infinite;
+}
+
+
+@keyframes dotsAnimation {
+
+    0% {
+        opacity: 0.2;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.2;
+    }
+
+}
+
+
+/* =========================================
+   HIDE LOADER
+   ========================================= */
+
+@keyframes hideLoader {
+
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+
+        visibility: hidden;
+
+        pointer-events: none;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 480px) {
+
+    .loader-title {
+        font-size: 32px;
+    }
+
+    .loader-subtitle {
+        font-size: 13px;
+    }
+
+    .loader-progress {
+        width: 210px;
+    }
+
+    .loader-mark {
+        width: 60px;
+        height: 60px;
+
+        font-size: 25px;
+    }
+
+}

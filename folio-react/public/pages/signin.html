@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign In — Folio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/common.css">
+<link rel="stylesheet" href="../css/signin.css">
+<link rel="stylesheet" href="../css/loader.css">
+<script>
+  // Show the loading screen only ONCE per visit (per browser tab).
+  // The first time, we remember that it was shown. After that, we hide it.
+  if (sessionStorage.getItem("folioLoaderShown")) {
+    document.documentElement.classList.add("skip-loader");
+  } else {
+    sessionStorage.setItem("folioLoaderShown", "yes");
+  }
+</script>
+</head>
+<body>
+
+<!-- ============ CSS-ONLY LOADING SCREEN ============ -->
+<div class="loader-screen" id="loader">
+
+    <div class="loader-inner">
+
+        <div class="loader-mark">F</div>
+
+        <h1 class="loader-title">FOLIO</h1>
+
+        <p class="loader-subtitle">Student Task Management System</p>
+
+        <div class="loader-progress">
+            <div class="loader-progress-bar"></div>
+        </div>
+
+        <p class="loader-text">
+            Securing your session
+            <span class="dots">...</span>
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- ============ SIGN IN PAGE ============ -->
+<main class="signin-page">
+
+    <!-- Left Side -->
+    <section class="signin-intro">
+
+        <a href="../index.html#loader" class="signin-logo">
+            <span class="signin-logo-mark">F</span>
+            <span>Folio</span>
+        </a>
+
+        <div class="intro-content">
+
+            <span class="intro-label">Student workspace</span>
+
+            <h1>
+                Organize your work.
+                <span>Own your progress.</span>
+            </h1>
+
+            <p>
+                Sign in to continue managing your tasks, schedules,
+                subjects, and academic progress in one focused workspace.
+            </p>
+
+            <div class="intro-line"></div>
+
+            <div class="intro-note">
+                <span>✦</span>
+                Everything you need. One place.
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Right Side -->
+    <section class="signin-card-wrapper">
+
+        <div class="signin-card">
+
+            <div class="signin-heading">
+                <span class="welcome-text">Welcome back</span>
+                <h2>Sign in to Folio</h2>
+                <p>Enter your details to access your workspace.</p>
+            </div>
+
+            <!-- Sign In Form (handled by signin.js) -->
+            <form class="signin-form" id="signin-form" novalidate>
+
+                <!-- Only shown when creating an account -->
+                <div class="signin-field" id="name-field" style="display:none;">
+                    <label for="fullname">Full name</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">A</span>
+                        <input type="text" id="fullname" name="fullname" placeholder="e.g. Dev Sharma">
+                    </div>
+                </div>
+
+                <div class="signin-field">
+                    <label for="email">Email address</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">@</span>
+                        <input type="email" id="email" name="email" placeholder="you@example.com">
+                    </div>
+                </div>
+
+                <div class="signin-field">
+                    <div class="password-label">
+                        <label for="password">Password</label>
+                        <a href="#" id="forgot-link">Forgot password?</a>
+                    </div>
+                    <div class="input-wrapper">
+                        <span class="input-icon">•</span>
+                        <input type="password" id="password" name="password" placeholder="Enter your password">
+                    </div>
+                </div>
+
+                <div class="remember-row">
+                    <label class="remember-option">
+                        <input type="checkbox" name="remember">
+                        <span class="custom-checkbox"></span>
+                        <span>Remember me</span>
+                    </label>
+                </div>
+
+                <!-- error / info message (filled in by signin.js) -->
+                <p class="signin-error" id="signin-error"></p>
+
+                <button type="submit" class="signin-button" id="submit-button">
+                    <span id="submit-text">Sign In</span>
+                    <span class="signin-arrow">→</span>
+                </button>
+
+            </form>
+
+            <p class="demo-note">
+                <strong>Demo login only.</strong> Accounts are stored in this browser's localStorage,
+                which is not secure. Do not use a real password or sensitive information.
+            </p>
+
+            <div class="signin-divider">
+                <span></span>
+                <p>or</p>
+                <span></span>
+            </div>
+
+            <a href="home.html#loader" class="guest-button" id="guest-button">Continue as guest</a>
+
+            <p class="signup-text">
+                <span id="switch-question">Don't have an account?</span>
+                <a href="#" id="switch-link">Create one</a>
+            </p>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- Footer -->
+<footer class="signin-footer">
+    <span>© 2026 Folio</span>
+    <span class="footer-separator">•</span>
+    <span>Student Task Management System</span>
+</footer>
+
+<script src="../js/common.js"></script>
+<script src="../js/signin.js"></script>
+
+</body>
+</html>

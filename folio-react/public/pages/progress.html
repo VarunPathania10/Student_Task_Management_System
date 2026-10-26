@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Progress — Folio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/common.css">
+<link rel="stylesheet" href="../css/home.css">
+<link rel="stylesheet" href="../css/progress.css">
+<link rel="stylesheet" href="../css/loader.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-bar">
+    <a href="home.html#loader" class="brand"><span class="brand-mark">F</span> Folio</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <label for="nav-toggle" class="hamburger" aria-label="Open menu"><span></span><span></span><span></span></label>
+    <nav class="nav-menu">
+    <ul style="display:flex; gap:4px; flex-direction:inherit;">
+        <li><a href="home.html#loader">Home</a></li>
+        <li><a href="home.html#dashboard">Dashboard</a></li>
+        <li><a href="tasks.html">Tasks</a></li>
+        <li><a href="schedule.html">Calendar</a></li>
+        <li><a href="subjects.html">Subjects</a></li>
+        <!-- <li><a href="notes.html">Notes</a></li> -->
+        <li><a href="progress.html" class="active">Progress</a></li>
+        <li><a href="about.html">About</a></li>
+        <!-- <li><a href="contact.html">Contact</a></li> -->
+    </ul>
+</nav>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <div class="eyebrow-row"><span class="chip chip-medium">This semester</span></div>
+      <h1>Progress</h1>
+      <p>A performance snapshot — completion rate, study hours and where each subject stands.</p>
+    </div>
+  </section>
+
+  <!-- ============ TOP STATS ============ -->
+  <section class="section-tight">
+    <div class="container grid grid-4">
+      <div class="stat-card"><span class="stat-num accent-gold" id="p-percent">0%</span><span class="stat-label">Overall completion</span></div>
+      <div class="stat-card"><span class="stat-num accent-teal" id="p-hours">0 hrs</span><span class="stat-label">Completed this week</span></div>
+      <div class="stat-card"><span class="stat-num" id="p-tasks">0 / 0</span><span class="stat-label">Tasks completed</span></div>
+      <div class="stat-card"><span class="stat-num accent-violet" id="p-score">0</span><span class="stat-label">Productivity score</span></div>
+    </div>
+  </section>
+
+  <!-- ============ RING + WEEKLY PRODUCTIVITY BAR CHART ============ -->
+  <section class="section-tight">
+    <div class="container grid grid-2">
+      <div class="panel" style="display:flex; align-items:center; gap:26px;">
+        <div class="ring-wrap">
+          <div class="ring" id="p-ring" style="--pct:0;"><div class="ring-inner"><strong id="p-ring-text">0%</strong><span>complete</span></div></div>
+        </div>
+        <div>
+          <h3 style="font-size:1.1rem; margin-bottom:6px;">Overall completion</h3>
+          <p class="text-dim" style="font-size:0.88rem;" id="p-ring-note"></p>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3 style="font-size:1.1rem; margin-bottom:14px;">Weekly productivity <span class="text-dim" style="font-size:0.8rem; font-weight:500;">(tasks finished each day)</span></h3>
+        <div class="bar-chart" id="p-bars"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SUBJECT PROGRESS ============ -->
+  <section class="section-tight">
+    <div class="container">
+      <div class="section-heading"><h2>Subject progress</h2></div>
+      <div class="panel" style="display:flex; flex-direction:column; gap:18px;" id="p-subjects"></div>
+    </div>
+  </section>
+
+  <!-- ============ ASSIGNMENT & EXAM PREP PROGRESS ============ -->
+  <section class="section-tight">
+    <div class="container grid grid-2">
+      <div class="panel">
+        <h3 style="font-size:1.1rem; margin-bottom:12px;">Assignment progress</h3>
+        <div class="progress-row"><span>Assignments completed</span><span id="p-assign-text">0 / 0</span></div>
+        <div class="progress-track"><div class="progress-fill fill-teal" id="p-assign-bar" style="width:0%;"></div></div>
+      </div>
+      <div class="panel">
+        <h3 style="font-size:1.1rem; margin-bottom:12px;">Exam preparation progress</h3>
+        <div id="p-exam"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ACADEMIC GOALS ============ -->
+  <section class="section-tight">
+    <div class="container">
+      <div class="section-heading"><h2>Academic goals</h2></div>
+      <div class="grid grid-3">
+        <div class="ledger-card"><strong>Finish all pending tasks</strong><p class="text-dim" style="font-size:0.85rem; margin-top:6px;" id="goal-pending"></p></div>
+        <div class="ledger-card card-teal"><strong>Clear all overdue work</strong><p class="text-dim" style="font-size:0.85rem; margin-top:6px;" id="goal-overdue"></p></div>
+        <div class="ledger-card card-violet"><strong>30-day study streak</strong><p class="text-dim" style="font-size:0.85rem; margin-top:6px;" id="goal-streak"></p></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+
+    <div class="footer-main">
+
+        <!-- Brand Section -->
+        <div class="footer-brand">
+            <a href="home.html#loader" class="footer-logo">
+                <span class="footer-logo-mark">F</span>
+                <span>Folio</span>
+            </a>
+
+            <p class="footer-description">
+                A smarter way for students to organize tasks,
+                manage schedules, and stay on track.
+            </p>
+
+            <div class="footer-status">
+                <span class="status-dot"></span>
+                Built for students
+            </div>
+        </div>
+
+
+        <!-- Navigation -->
+        <div class="footer-column">
+            <h4>Navigate</h4>
+
+            <a href="home.html#loader">Home</a>
+            <a href="tasks.html">Tasks</a>
+            <a href="schedule.html">Calendar</a>
+            <a href="subjects.html">Subjects</a>
+            <a href="progress.html">Progress</a>
+        </div>
+
+
+        <!-- Resources -->
+        <div class="footer-column">
+            <h4>Explore</h4>
+
+            <a href="about.html">About Folio</a>
+            <a href="tasks.html">Task Manager</a>
+            <a href="schedule.html">Study Schedule</a>
+            <a href="subjects.html">Your Subjects</a>
+            <a href="progress.html">Your Progress</a>
+        </div>
+
+
+        <!-- Footer CTA -->
+        <div class="footer-cta">
+
+            <div class="footer-cta-icon">
+                ✦
+            </div>
+
+            <h3>Stay organized.</h3>
+
+            <p>
+                Plan your work, track your progress,
+                and make every study session count.
+            </p>
+
+            <a href="tasks.html" class="footer-cta-btn">
+                Start Planning
+                <span>→</span>
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- Footer Bottom -->
+
+    <div class="footer-bottom">
+
+        <div class="footer-copyright">
+            © 2026 Folio. Built for better study days.
+        </div>
+
+        <div class="footer-bottom-links">
+            <a href="about.html">About</a>
+            <span>•</span>
+            <a href="tasks.html">Tasks</a>
+            <span>•</span>
+            <a href="schedule.html">Schedule</a>
+        </div>
+
+        <div class="footer-made">
+            Student Task Management System
+        </div>
+
+    </div>
+
+</footer>
+
+<script src="../js/common.js"></script>
+<script src="../js/progress.js"></script>
+
+</body>
+</html>

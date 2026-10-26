@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Folio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/common.css">
+<link rel="stylesheet" href="../css/about.css">
+<link rel="stylesheet" href="../css/loader.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-bar">
+    <a href="home.html#loader" class="brand"><span class="brand-mark">F</span> Folio</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <label for="nav-toggle" class="hamburger" aria-label="Open menu"><span></span><span></span><span></span></label>
+    <nav class="nav-menu">
+    <ul style="display:flex; gap:4px; flex-direction:inherit;">
+        <li><a href="home.html#loader">Home</a></li>
+        <li><a href="home.html#dashboard">Dashboard</a></li>
+        <li><a href="tasks.html">Tasks</a></li>
+        <li><a href="schedule.html">Calendar</a></li>
+        <li><a href="subjects.html">Subjects</a></li>
+        <!-- <li><a href="notes.html">Notes</a></li> -->
+        <li><a href="progress.html">Progress</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <!-- <li><a href="contact.html">Contact</a></li> -->
+    </ul>
+</nav>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <div class="eyebrow-row"><span class="chip chip-medium">College project</span></div>
+      <h1>About Folio</h1>
+      <p>A student task management system built as a front-end college project — one consistent theme, from the loading screen to the last footer link.</p>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="container grid grid-2">
+      <div class="panel">
+        <h3 style="margin-bottom:10px;">What Folio is</h3>
+        <p class="text-mid">Folio is a dashboard for keeping every academic responsibility — assignments, exams, class timetables and long-term progress — in one place, styled after a scholar's personal ledger rather than a generic to-do app.</p>
+      </div>
+      <div class="panel">
+        <h3 style="margin-bottom:10px;">Why it exists</h3>
+        <p class="text-mid">Students juggle deadlines across many subjects and tools. This project explores what a single, calm, well-organized home for that information could look like, built with HTML, CSS, JavaScript and React.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="container">
+      <div class="section-heading"><h2>Main features</h2></div>
+      <div class="grid grid-3">
+        <div class="ledger-card"><strong>Task ledger</strong><p class="text-dim" style="font-size:0.85rem; margin-top:6px;">Priority, difficulty, due dates and category tags for every task.</p></div>
+        <div class="ledger-card card-teal"><strong>Weekly timetable</strong><p class="text-dim" style="font-size:0.85rem; margin-top:6px;">Classes, labs, exams and study sessions on one grid.</p></div>
+        <div class="ledger-card card-violet"><strong>Subject overview</strong><p class="text-dim" style="font-size:0.85rem; margin-top:6px;">Instructor, credits and progress per course.</p></div>
+        <div class="ledger-card card-rose"><strong>Exam countdowns</strong><p class="text-dim" style="font-size:0.85rem; margin-top:6px;">Know exactly how many days are left, and how ready you are.</p></div>
+        <div class="ledger-card"><strong>Progress dashboard</strong><p class="text-dim" style="font-size:0.85rem; margin-top:6px;">Completion rings, weekly bar charts and exam-prep tracking.</p></div>
+        <div class="ledger-card card-teal"><strong>Saved in your browser</strong><p class="text-dim" style="font-size:0.85rem; margin-top:6px;">Add, tick off, filter and delete tasks — everything is remembered when you come back.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="container grid grid-2">
+      <div>
+        <div class="section-heading"><h2>Benefits for students</h2></div>
+        <ul style="display:flex; flex-direction:column; gap:10px; color:var(--text-mid);">
+          <li>— One place to see everything due this week, instead of five different apps.</li>
+          <li>— Visual priority and difficulty cues make planning faster.</li>
+          <li>— A progress view that turns effort into something you can actually see.</li>
+        </ul>
+      </div>
+      <div>
+        <div class="section-heading"><h2>Technologies used</h2></div>
+        <div style="display:flex; flex-wrap:wrap; gap:10px;">
+          <span class="chip chip-medium">HTML5</span>
+          <span class="chip chip-low">CSS3</span>
+          <span class="chip" style="color:var(--violet); background:rgba(139,131,224,.14);">CSS Grid &amp; Flexbox</span>
+          <span class="chip chip-medium">JavaScript</span>
+          <span class="chip chip-low">React</span>
+          <span class="chip">localStorage</span>
+          <span class="chip">Responsive design</span>
+        </div>
+        <p class="text-dim" style="margin-top:16px; font-size:0.85rem;">Login, tasks, events and progress are handled with JavaScript and saved in the browser using localStorage. The dashboard (home page) is built with React.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="container">
+      <div class="panel" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+        <div>
+          <h3 style="margin-bottom:6px;">Project information</h3>
+          <p class="text-dim" style="font-size:0.88rem;">B.Tech Computer Science · Web Technologies Coursework · Semester 5, 2026</p>
+        </div>
+        <a href="signin.html#loader" class="btn btn-primary">Get started →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+
+    <div class="footer-main">
+
+        <!-- Brand Section -->
+        <div class="footer-brand">
+            <a href="home.html#loader" class="footer-logo">
+                <span class="footer-logo-mark">F</span>
+                <span>Folio</span>
+            </a>
+
+            <p class="footer-description">
+                A smarter way for students to organize tasks,
+                manage schedules, and stay on track.
+            </p>
+
+            <div class="footer-status">
+                <span class="status-dot"></span>
+                Built for students
+            </div>
+        </div>
+
+
+        <!-- Navigation -->
+        <div class="footer-column">
+            <h4>Navigate</h4>
+
+            <a href="home.html#loader">Home</a>
+            <a href="tasks.html">Tasks</a>
+            <a href="schedule.html">Calendar</a>
+            <a href="subjects.html">Subjects</a>
+            <a href="progress.html">Progress</a>
+        </div>
+
+
+        <!-- Resources -->
+        <div class="footer-column">
+            <h4>Explore</h4>
+
+            <a href="about.html">About Folio</a>
+            <a href="tasks.html">Task Manager</a>
+            <a href="schedule.html">Study Schedule</a>
+            <a href="subjects.html">Your Subjects</a>
+            <a href="progress.html">Your Progress</a>
+        </div>
+
+
+        <!-- Footer CTA -->
+        <div class="footer-cta">
+
+            <div class="footer-cta-icon">
+                ✦
+            </div>
+
+            <h3>Stay organized.</h3>
+
+            <p>
+                Plan your work, track your progress,
+                and make every study session count.
+            </p>
+
+            <a href="tasks.html" class="footer-cta-btn">
+                Start Planning
+                <span>→</span>
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- Footer Bottom -->
+
+    <div class="footer-bottom">
+
+        <div class="footer-copyright">
+            © 2026 Folio. Built for better study days.
+        </div>
+
+        <div class="footer-bottom-links">
+            <a href="about.html">About</a>
+            <span>•</span>
+            <a href="tasks.html">Tasks</a>
+            <span>•</span>
+            <a href="schedule.html">Schedule</a>
+        </div>
+
+        <div class="footer-made">
+            Student Task Management System
+        </div>
+
+    </div>
+
+</footer>
+
+<script src="../js/common.js"></script>
+
+</body>
+</html>

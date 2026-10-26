@@ -1,0 +1,173 @@
+/* ============================================================
+   FOLIO — PROGRESS CSS
+   File: progress.css
+   Used by: progress.html
+   ============================================================ */
+
+
+/* ============================================================
+   PRODUCTIVITY RING
+   ============================================================ */
+
+.progress-ring-wrap {
+  position: relative;
+
+  display: inline-flex;
+}
+
+.progress-ring {
+  --pct: 72;
+
+  width: 128px;
+  height: 128px;
+
+  border-radius: 50%;
+
+  background:
+    conic-gradient(
+      var(--gold) calc(var(--pct) * 1%),
+      var(--ink-600) 0
+    );
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+.progress-ring-inner {
+  width: 98px;
+  height: 98px;
+
+  border-radius: 50%;
+
+  background: var(--ink-800-solid);
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+.progress-ring-inner strong {
+  font-family: var(--font-display);
+
+  font-size: 1.5rem;
+}
+
+.progress-ring-inner span {
+  font-size: 0.68rem;
+
+  color: var(--text-dim);
+}
+
+
+/* ============================================================
+   WEEKLY BAR CHART
+   ============================================================ */
+
+.bar-chart {
+  display: flex;
+
+  align-items: flex-end;
+
+  gap: 14px;
+
+  height: 200px;
+
+  padding-top: 20px;
+}
+
+.bar-col {
+  flex: 1;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: flex-end;
+
+  gap: 8px;
+
+  height: 100%;
+}
+
+.bar {
+  width: 100%;
+
+  max-width: 34px;
+
+  border-radius: 6px 6px 0 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--gold-soft),
+      var(--gold)
+    );
+}
+
+.bar-col span {
+  font-size: 0.72rem;
+
+  color: var(--text-dim);
+}
+
+
+/* ============================================================
+   SUBJECT PROGRESS
+   ============================================================ */
+
+.subject-progress-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 18px;
+}
+
+
+/* ============================================================
+   ASSIGNMENT / EXAM PROGRESS
+   ============================================================ */
+
+.progress-summary {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 12px;
+}
+
+
+/* ============================================================
+   ACADEMIC GOALS
+   ============================================================ */
+
+.academic-goals {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 20px;
+}
+
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 760px) {
+
+  .academic-goals {
+    grid-template-columns: 1fr;
+  }
+
+  .bar-chart {
+    gap: 8px;
+  }
+}

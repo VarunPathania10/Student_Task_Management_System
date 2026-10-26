@@ -1,0 +1,549 @@
+/* ============================================================
+   FOLIO — SCHEDULE / CALENDAR CSS
+   File: schedule.css
+   Used by: schedule.html
+   ============================================================ */
+
+
+/* ============================================================
+   TIMETABLE
+   ============================================================ */
+
+.timetable-wrap {
+  overflow-x: auto;
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius-md);
+}
+
+table.timetable {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  min-width: 720px;
+}
+
+table.timetable th,
+table.timetable td {
+  padding: 14px 12px;
+
+  border-bottom: 1px solid var(--border);
+
+  border-right: 1px solid var(--border);
+
+  font-size: 0.82rem;
+
+  vertical-align: top;
+}
+
+table.timetable th {
+  background: var(--ink-700);
+
+  font-family: var(--font-display);
+
+  font-weight: 600;
+
+  text-align: left;
+}
+
+table.timetable td:first-child,
+table.timetable th:first-child {
+  color: var(--text-dim);
+
+  white-space: nowrap;
+}
+
+table.timetable td:last-child,
+table.timetable th:last-child {
+  border-right: none;
+}
+
+
+/* ============================================================
+   CALENDAR SLOTS
+   ============================================================ */
+
+.slot {
+  display: block;
+
+  padding: 6px 8px;
+
+  border-radius: 6px;
+
+  margin-bottom: 4px;
+
+  font-weight: 600;
+}
+
+.slot-class {
+  background: rgba(217,168,78,0.12);
+
+  color: var(--gold);
+}
+
+.slot-lab {
+  background: rgba(79,209,197,0.12);
+
+  color: var(--teal);
+}
+
+.slot-exam {
+  background: rgba(226,99,122,0.14);
+
+  color: var(--rose);
+}
+
+.slot-study {
+  background: rgba(139,131,224,0.14);
+
+  color: var(--violet);
+}
+
+
+/* ============================================================
+   EVENT CARDS
+   ============================================================ */
+
+.event-card {
+  display: flex;
+
+  gap: 16px;
+
+  align-items: center;
+}
+
+
+/* ---------- Date Badge ---------- */
+
+.date-badge {
+  width: 56px;
+  height: 56px;
+
+  border-radius: 12px;
+
+  background: var(--ink-700);
+
+  border: 1px solid var(--border-strong);
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  font-family: var(--font-display);
+}
+
+.date-badge strong {
+  font-size: 1.2rem;
+
+  line-height: 1;
+}
+
+.date-badge span {
+  font-size: 0.6rem;
+
+  color: var(--text-dim);
+
+  text-transform: uppercase;
+}
+
+
+/* ============================================================
+   EVENT FORM
+   ============================================================ */
+
+.schedule-form-grid {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 18px;
+}
+
+
+/* ============================================================
+   EXAM COUNTDOWN
+   ============================================================ */
+
+.exam-countdown {
+  text-align: center;
+}
+
+.exam-countdown .stat-num {
+  font-size: 2.6rem;
+}
+
+
+/* ============================================================
+   MONTH CALENDAR
+   ============================================================ */
+
+.calendar-toolbar {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin-bottom: 16px;
+}
+
+.calendar-toolbar h3 {
+  font-family: var(--font-display);
+
+  font-size: 1.25rem;
+
+  min-width: 170px;
+
+  text-align: center;
+}
+
+.calendar-toolbar .btn {
+  margin-left: auto;
+}
+
+.calendar-wrap {
+  overflow-x: auto;
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius-md);
+}
+
+.calendar-grid {
+  display: grid;
+
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+
+  min-width: 340px;
+}
+
+.cal-head {
+  background: var(--ink-700);
+
+  padding: 10px 8px;
+
+  font-family: var(--font-display);
+
+  font-size: 0.8rem;
+
+  font-weight: 600;
+
+  text-align: center;
+
+  border-bottom: 1px solid var(--border);
+}
+
+.cal-day,
+.cal-empty {
+  min-height: 96px;
+
+  border-right: 1px solid var(--border);
+
+  border-bottom: 1px solid var(--border);
+}
+
+.cal-day {
+  background: transparent;
+
+  color: var(--text-hi);
+
+  font-family: inherit;
+
+  text-align: left;
+
+  padding: 8px;
+
+  cursor: pointer;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+
+  border-top: none;
+
+  border-left: none;
+
+  transition: background 0.2s var(--ease);
+}
+
+.cal-day:hover {
+  background: var(--glass-hi);
+}
+
+.cal-day:nth-child(7n) {
+  border-right: none;
+}
+
+.cal-number {
+  font-size: 0.82rem;
+
+  font-weight: 700;
+
+  color: var(--text-mid);
+}
+
+.cal-day.is-today .cal-number {
+  background: var(--gold);
+
+  color: var(--ink-900);
+
+  border-radius: 999px;
+
+  padding: 1px 8px;
+
+  align-self: flex-start;
+}
+
+.cal-day.is-selected {
+  background: rgba(217, 168, 78, 0.12);
+
+  outline: 2px solid var(--gold);
+
+  outline-offset: -2px;
+}
+
+/* small labels inside a date (desktop) */
+.cal-chip {
+  display: block;
+
+  font-size: 0.68rem;
+
+  font-weight: 600;
+
+  padding: 2px 6px;
+
+  border-radius: 4px;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+
+.cal-chip.chip-high-bg {
+  background: rgba(226, 99, 122, 0.16);
+
+  color: var(--rose);
+}
+
+.cal-chip.chip-medium-bg {
+  background: rgba(217, 168, 78, 0.14);
+
+  color: var(--gold);
+}
+
+.cal-chip.chip-low-bg {
+  background: rgba(79, 209, 197, 0.14);
+
+  color: var(--teal);
+}
+
+.cal-chip.chip-event-bg {
+  background: rgba(139, 131, 224, 0.16);
+
+  color: var(--violet);
+}
+
+.cal-chip.is-done {
+  opacity: 0.5;
+
+  text-decoration: line-through;
+}
+
+.cal-more {
+  font-size: 0.68rem;
+
+  color: var(--text-dim);
+}
+
+/* dots (shown on small screens instead of labels) */
+.cal-dots {
+  display: none;
+
+  gap: 3px;
+
+  flex-wrap: wrap;
+}
+
+.legend-dot,
+.cal-dot {
+  display: inline-block;
+
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+}
+
+.legend-dot {
+  margin-left: 10px;
+
+  margin-right: 3px;
+}
+
+.dot-high { background: var(--rose); }
+.dot-medium { background: var(--gold); }
+.dot-low { background: var(--teal); }
+.dot-event { background: var(--violet); }
+
+.calendar-legend {
+  border-top: none;
+
+  padding-top: 0;
+}
+
+
+/* ============================================================
+   SELECTED DAY PANEL
+   ============================================================ */
+
+.day-panel {
+  margin-top: 18px;
+}
+
+.day-panel h3 {
+  font-family: var(--font-display);
+
+  margin-bottom: 14px;
+}
+
+.day-row {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 10px 0;
+
+  border-bottom: 1px solid var(--border);
+}
+
+.day-row .check {
+  margin-top: 0;
+}
+
+.day-row-text {
+  flex: 1;
+
+  min-width: 0;
+}
+
+.day-row-text.is-done {
+  opacity: 0.5;
+
+  text-decoration: line-through;
+}
+
+.day-row-actions {
+  display: flex;
+
+  gap: 8px;
+}
+
+a.icon-btn {
+  text-decoration: none;
+
+  color: inherit;
+}
+
+.day-add-form {
+  display: flex;
+
+  gap: 10px;
+
+  flex-wrap: wrap;
+
+  margin-top: 16px;
+}
+
+.day-add-form input,
+.day-add-form select {
+  background: var(--ink-700);
+
+  border: 1px solid var(--border-strong);
+
+  border-radius: var(--radius-sm);
+
+  padding: 9px 12px;
+
+  font-size: 0.88rem;
+}
+
+.day-add-form input {
+  flex: 1;
+
+  min-width: 180px;
+}
+
+.day-add-form input:focus,
+.day-add-form select:focus {
+  border-color: var(--gold);
+
+  outline: none;
+}
+
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 760px) {
+
+  .schedule-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  table.timetable {
+    min-width: 620px;
+  }
+
+  .event-card {
+    align-items: flex-start;
+  }
+}
+
+/* ---------- Calendar on small screens ---------- */
+
+@media (max-width: 760px) {
+
+  .cal-day,
+  .cal-empty {
+    min-height: 58px;
+
+    padding: 5px;
+  }
+
+  /* show dots instead of text labels */
+  .cal-chip,
+  .cal-more {
+    display: none;
+  }
+
+  .cal-dots {
+    display: flex;
+  }
+
+  .calendar-toolbar h3 {
+    min-width: 0;
+
+    flex: 1;
+  }
+
+  .day-row {
+    flex-wrap: wrap;
+  }
+
+  .day-add-form input {
+    flex-basis: 100%;
+  }
+}

@@ -1,0 +1,108 @@
+/* ============================================================
+   FOLIO — ABOUT CSS
+   File: about.css
+   Used by: about.html
+   ============================================================ */
+
+
+/* ============================================================
+   ABOUT INFORMATION CARDS
+   ============================================================ */
+
+.about-info-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 20px;
+}
+
+
+/* ---------- About Information ---------- */
+
+.about-info-card h3 {
+  margin-bottom: 10px;
+}
+
+
+/* ============================================================
+   MAIN FEATURES
+   ============================================================ */
+
+.about-features {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 20px;
+}
+
+
+/* ============================================================
+   BENEFITS / TECHNOLOGIES
+   ============================================================ */
+
+.about-two-column {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 20px;
+}
+
+
+/* ---------- Benefits List ---------- */
+
+.about-benefits {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+
+  color: var(--text-mid);
+}
+
+
+/* ---------- Technologies ---------- */
+
+.about-technologies {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 10px;
+}
+
+
+/* ============================================================
+   PROJECT INFORMATION
+   ============================================================ */
+
+.project-information {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  gap: 16px;
+}
+
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 760px) {
+
+  .about-info-grid,
+  .about-features,
+  .about-two-column {
+    grid-template-columns: 1fr;
+  }
+
+  .project-information {
+    align-items: flex-start;
+  }
+}

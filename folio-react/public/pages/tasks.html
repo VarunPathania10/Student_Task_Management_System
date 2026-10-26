@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tasks — Folio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/common.css">
+<link rel="stylesheet" href="../css/tasks.css">
+<link rel="stylesheet" href="../css/loader.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-bar">
+    <a href="home.html#loader" class="brand"><span class="brand-mark">F</span> Folio</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <label for="nav-toggle" class="hamburger" aria-label="Open menu"><span></span><span></span><span></span></label>
+    <nav class="nav-menu">
+    <ul style="display:flex; gap:4px; flex-direction:inherit;">
+        <li><a href="home.html#loader">Home</a></li>
+        <li><a href="home.html#dashboard">Dashboard</a></li>
+        <li><a href="tasks.html" class="active">Tasks</a></li>
+        <li><a href="schedule.html">Calendar</a></li>
+        <li><a href="subjects.html">Subjects</a></li>
+        <!-- <li><a href="notes.html">Notes</a></li> -->
+        <li><a href="progress.html">Progress</a></li>
+        <li><a href="about.html">About</a></li>
+        <!-- <li><a href="contact.html">Contact</a></li> -->
+    </ul>
+</nav>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <div class="eyebrow-row"><span class="chip chip-medium" id="task-summary">0 total · 0 pending</span></div>
+      <h1>Tasks</h1>
+      <p>Every assignment, project and exam in one ledger. Tick a box to mark something done, use the ✎ button to edit a task, use the filters to find tasks quickly, and delete or archive the ones you no longer need.</p>
+    </div>
+  </section>
+
+  <!-- ============ ADD TASK FORM ============ -->
+  <section class="section-tight" id="add-task">
+    <div class="container">
+      <div class="section-heading"><h2 id="form-heading">Add a task</h2></div>
+      <form class="panel" id="task-form" novalidate>
+        <div class="form-grid">
+          <div class="field">
+            <label for="t-title">Task title</label>
+            <input id="t-title" type="text" placeholder="e.g. Operating Systems Assignment 4">
+          </div>
+          <div class="field">
+            <label for="t-subject">Subject</label>
+            <select id="t-subject">
+              <option>Data Structures</option>
+              <option>Java Programming</option>
+              <option>Web Development</option>
+              <option>Database Management</option>
+              <option>Computer Networks</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="t-due">Due date</label>
+            <input id="t-due" type="date">
+          </div>
+          <div class="field">
+            <label for="t-time">Estimated time (hours)</label>
+            <input id="t-time" type="number" min="0" step="0.5" placeholder="2.5">
+          </div>
+          <div class="field full">
+            <label for="t-desc">Description</label>
+            <textarea id="t-desc" placeholder="Notes about what this task involves…"></textarea>
+          </div>
+          <div class="field">
+            <label>Priority</label>
+            <div class="radio-group">
+              <label><input type="radio" name="priority" value="Low" checked> Low</label>
+              <label><input type="radio" name="priority" value="Medium"> Medium</label>
+              <label><input type="radio" name="priority" value="High"> High</label>
+            </div>
+          </div>
+          <div class="field">
+            <label>Category</label>
+            <div class="radio-group">
+              <label><input type="radio" name="category" value="Assignment" checked> Assignment</label>
+              <label><input type="radio" name="category" value="Exam"> Exam</label>
+              <label><input type="radio" name="category" value="Project"> Project</label>
+              <label><input type="radio" name="category" value="Homework"> Homework</label>
+            </div>
+          </div>
+          <div class="field">
+            <label>Difficulty</label>
+            <div class="radio-group">
+              <label><input type="radio" name="difficulty" value="Easy" checked> Easy</label>
+              <label><input type="radio" name="difficulty" value="Medium"> Medium</label>
+              <label><input type="radio" name="difficulty" value="Hard"> Hard</label>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:18px; display:flex; gap:12px;">
+          <button type="submit" class="btn btn-primary" id="task-submit">Add task</button>
+          <button type="reset" class="btn btn-ghost" id="task-reset">Clear form</button>
+          <button type="button" class="btn btn-ghost" id="cancel-edit" style="display:none;">Cancel edit</button>
+        </div>
+        <p class="form-note" id="form-message">Your tasks are saved in this browser, so they will still be here when you come back.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ FILTERS ============ -->
+  <section class="section-tight">
+    <div class="container">
+      <div class="filter-row">
+        <input class="filter-pill" type="radio" name="filter" id="f-all" value="all" checked><label for="f-all">All</label>
+        <input class="filter-pill" type="radio" name="filter" id="f-pending" value="pending"><label for="f-pending" title="Everything that is not completed yet (including overdue)">Pending</label>
+        <input class="filter-pill" type="radio" name="filter" id="f-upcoming" value="upcoming"><label for="f-upcoming" title="Pending tasks that are not overdue yet">Upcoming</label>
+        <input class="filter-pill" type="radio" name="filter" id="f-high" value="high"><label for="f-high">High priority</label>
+        <input class="filter-pill" type="radio" name="filter" id="f-overdue" value="overdue"><label for="f-overdue">Overdue</label>
+        <input class="filter-pill" type="radio" name="filter" id="f-done" value="done"><label for="f-done">Completed</label>
+        <input class="filter-pill" type="radio" name="filter" id="f-archived" value="archived"><label for="f-archived">Archived</label>
+      </div>
+    </div>
+  </section>
+
+  <!-- Task lists are filled in by tasks.js -->
+
+  <!-- ============ HIGH PRIORITY ============ -->
+  <section class="section-tight" id="sec-high">
+    <div class="container">
+      <div class="section-heading"><h2>High priority</h2></div>
+      <div class="task-list" id="list-high"></div>
+    </div>
+  </section>
+
+  <!-- ============ OVERDUE ============ -->
+  <section class="section-tight" id="sec-overdue">
+    <div class="container">
+      <div class="section-heading"><h2>Overdue</h2></div>
+      <div class="task-list" id="list-overdue"></div>
+    </div>
+  </section>
+
+  <!-- ============ PENDING TASKS ============ -->
+  <section class="section-tight" id="sec-pending">
+    <div class="container">
+      <div class="section-heading"><h2>Pending tasks</h2></div>
+      <div class="task-list" id="list-pending"></div>
+    </div>
+  </section>
+
+  <!-- ============ COMPLETED TASKS ============ -->
+  <section class="section-tight" id="sec-done">
+    <div class="container">
+      <div class="section-heading"><h2>Completed tasks</h2></div>
+      <div class="task-list" id="list-done"></div>
+    </div>
+  </section>
+
+  <!-- ============ ARCHIVED TASKS ============ -->
+  <section class="section-tight" id="sec-archived">
+    <div class="container">
+      <div class="section-heading"><h2>Archived tasks</h2></div>
+      <div class="task-list" id="list-archived"></div>
+    </div>
+  </section>
+
+  <section class="section-tight" id="empty-section" style="display:none;">
+    <div class="container">
+      <div class="panel" style="text-align:center;">
+        <p class="text-mid">No tasks to show here. Add one using the form above!</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+
+    <div class="footer-main">
+
+        <!-- Brand Section -->
+        <div class="footer-brand">
+            <a href="home.html#loader" class="footer-logo">
+                <span class="footer-logo-mark">F</span>
+                <span>Folio</span>
+            </a>
+
+            <p class="footer-description">
+                A smarter way for students to organize tasks,
+                manage schedules, and stay on track.
+            </p>
+
+            <div class="footer-status">
+                <span class="status-dot"></span>
+                Built for students
+            </div>
+        </div>
+
+
+        <!-- Navigation -->
+        <div class="footer-column">
+            <h4>Navigate</h4>
+
+            <a href="home.html#loader">Home</a>
+            <a href="tasks.html">Tasks</a>
+            <a href="schedule.html">Calendar</a>
+            <a href="subjects.html">Subjects</a>
+            <a href="progress.html">Progress</a>
+        </div>
+
+
+        <!-- Resources -->
+        <div class="footer-column">
+            <h4>Explore</h4>
+
+            <a href="about.html">About Folio</a>
+            <a href="tasks.html">Task Manager</a>
+            <a href="schedule.html">Study Schedule</a>
+            <a href="subjects.html">Your Subjects</a>
+            <a href="progress.html">Your Progress</a>
+        </div>
+
+
+        <!-- Footer CTA -->
+        <div class="footer-cta">
+
+            <div class="footer-cta-icon">
+                ✦
+            </div>
+
+            <h3>Stay organized.</h3>
+
+            <p>
+                Plan your work, track your progress,
+                and make every study session count.
+            </p>
+
+            <a href="tasks.html" class="footer-cta-btn">
+                Start Planning
+                <span>→</span>
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- Footer Bottom -->
+
+    <div class="footer-bottom">
+
+        <div class="footer-copyright">
+            © 2026 Folio. Built for better study days.
+        </div>
+
+        <div class="footer-bottom-links">
+            <a href="about.html">About</a>
+            <span>•</span>
+            <a href="tasks.html">Tasks</a>
+            <span>•</span>
+            <a href="schedule.html">Schedule</a>
+        </div>
+
+        <div class="footer-made">
+            Student Task Management System
+        </div>
+
+    </div>
+
+</footer>
+
+<script src="../js/common.js"></script>
+<script src="../js/tasks.js"></script>
+
+</body>
+</html>

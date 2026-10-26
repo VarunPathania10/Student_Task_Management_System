@@ -1,0 +1,81 @@
+/* ============================================================
+   FOLIO — SUBJECTS CSS
+   File: subjects.css
+   Used by: subjects.html
+   ============================================================ */
+
+
+/* ============================================================
+   SUBJECT CARDS
+   ============================================================ */
+
+.subject-card {
+  background: var(--glass);
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+
+  padding: 22px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  transition:
+    border-color 0.25s var(--ease),
+    transform 0.25s var(--ease);
+}
+
+.subject-card:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-3px);
+}
+
+
+/* ---------- Top Row ---------- */
+
+.subject-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 14px;
+}
+
+.subject-top h3 {
+  font-size: 1.05rem;
+
+  margin-bottom: 3px;
+}
+
+
+/* ---------- Subject Tag ---------- */
+
+.subject-tag {
+  width: 42px;
+  height: 42px;
+
+  border-radius: 11px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.9rem;
+
+  color: var(--ink-900);
+}
+
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 760px) {
+
+  .subject-card {
+    padding: 20px;
+  }
+}
